@@ -1,0 +1,7 @@
+.vscode/tasks.json
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+vc140.pdb
+hello.pdb
+hello.ilk
+hello.exe
