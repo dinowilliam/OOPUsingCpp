@@ -14,12 +14,14 @@ const int max_len = 255;
 
 class my_string {
     public:         //universal access to interface
-        void assign(const char* st);
+        void assign(const char* st);           
         int length() const { return len; }
-        void print () const {   cout << s << "\nl_ength: " << len << endl;    }
+        void print () const {   cout << s << "\nLength: " << len << endl;    }        
     private:        //restricted access to implementation
         char s[max_len];
-        int len;
+        int len;        
+
+    
 };
 
 //Test of the class my_string.
@@ -38,3 +40,9 @@ int main(){
     else
         two.print() ;
 }
+
+// Method definition
+ void my_string::assign(const char* st){           
+            len = strlen(st) ;           
+            strcpy(s, st);        
+};       
