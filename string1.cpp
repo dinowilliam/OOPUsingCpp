@@ -40,6 +40,6 @@ int main(){
 
 // Method assign of my_string definition
  void my_string::assign(const char* st){           
-            len = strlen(st) ;           
-            strcpy(s, st);        
+    len = strlen(st) ;           
+    strcpy(s, st);        
 };       
