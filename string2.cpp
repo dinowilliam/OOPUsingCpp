@@ -33,7 +33,9 @@ class my_string {
 
         void assign(const char* str);           
         int length() const { return len; }
-        void print () const {   cout << s << "\nLength: " << len << endl;    }        
+        void print () const {   
+            cout << "The " << typeid(this).name()  << " Value is: " << s << "\nLength: " << len << endl;    
+        }        
         
          //Add as a member function to class my_string.
         ~my_string() { delete []s; } //destructor     
@@ -45,14 +47,14 @@ class my_string {
 
 //Test of the class my_string.
 int main(){
-    my_string a, b(10), c("I Came by horse");    
+    my_string a, b(10), c("I Came by horse.");    
 
     char* str = "I came on foot.";
     my_string d("I came by bus."), e(str);        
-        
+
     b.assign(str);
     
-    cout << "The str Variable: " << str;
+    cout << "The str Value is: " << str;
     cout << "\nLength: " << strlen(str) << endl;
     
     //print the shorter of one and two
