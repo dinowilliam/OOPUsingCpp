@@ -1,9 +1,9 @@
 /************************************************************************************************************************************/
 /*  Object-Oriented Programming Using C++  bu Ira Pohl - Second Edition                                                             */
-/*  Program: hello.cpp                                                                                                              */
+/*  Program: dinner.cpp                                                                                                              */
 /************************************************************************************************************************************/
 
-//Hello world in C++
+//dinner in C++
 #include <iostream>        //IO library
 #include <string>          //string stype
 
@@ -14,4 +14,6 @@ inline void pr_message(string s = "Hello world!")
 
 int main(){
     pr_message();
+    pr_message("Laura Pohl");
+    pr_message("It's is dinner time.");
 }
