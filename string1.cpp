@@ -19,13 +19,10 @@ class my_string {
         void print () const {   cout << s << "\nLength: " << len << endl;    }        
     private:        //restricted access to implementation
         char s[max_len];
-        int len;        
-
-    
+        int len;            
 };
 
 //Test of the class my_string.
-
 int main(){
     my_string one, two;
     char    three[40] = {"My name is Charles Babbage."};
@@ -41,7 +38,7 @@ int main(){
         two.print() ;
 }
 
-// Method definition
+// Method assign of my_string definition
  void my_string::assign(const char* st){           
             len = strlen(st) ;           
             strcpy(s, st);        
