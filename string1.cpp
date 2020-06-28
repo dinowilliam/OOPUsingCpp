@@ -3,7 +3,7 @@
 /*  Program: string1.cpp                                                                                                             */
 /************************************************************************************************************************************/
 
-//dinner in C++
+//string1 in C++
 #include <iostream>        //IO library
 #include <string>          //string stype
 
