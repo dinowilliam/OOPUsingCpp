@@ -16,9 +16,11 @@ public:
     explicit my_string(int n) { s = new char[n + 1] ; len = n; }
     void assign(const char* st);
     int length() const { return len; }
-    void print() const    {  cout << s << "\nl_ength: " << len << endl; }
-        my_string& operator=(const my_string& a);
-        friend my_string& operator+(const my_string& a, const my_string& b);
+    void print() const 
+        { cout << s << "\nl_ength: " << len << endl; }
+    my_string& operator=(const my_string& a);
+    friend my_string& operator+
+        (const my_string& a, const my_string& b);
 private:
     char* s;
     int len;
@@ -35,7 +37,7 @@ my_string& operator+(const my_string& a, const my_string& b)
 
 void print (const char* c) //file scope print
 {
-    cout << c << "\nl_ength: " <<: strlen(c)<< endl ;
+    cout << c << "\nl_ength: " << strlen(c)<< endl;
 }
 
 int main(){
