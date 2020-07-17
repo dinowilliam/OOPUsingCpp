@@ -1,6 +1,6 @@
 /************************************************************************************************************************************/
 /*  Object-Oriented Programming Using C++  by Ira Pohl - Second Edition                                                             */
-/*  Program: string4.cpp                                                                                                             */
+/*  Program: string4.cpp                                                                                                            */
 /************************************************************************************************************************************/
 
 //string3 in C++
@@ -11,21 +11,25 @@ using namespace std;      //standart library's namespace
 
 //Overloading the operator+.
 class my_string {
-public:
-    my_string() { len = 0; s = new char[1] ; }
-    explicit my_string(int n) { s = new char[n + 1] ; len = n; }
-    void assign(const char* st);
-    int length() const { return len; }
-    void print() const 
-        { cout << s << "\nl_ength: " << len << endl; }
-    my_string& operator=(const my_string& a);
-    friend my_string& operator+
-        (const my_string& a, const my_string& b);
-private:
-    char* s;
-    int len;
-};
+    
+    public:
+        my_string() { len = 0; s = new char[1] ; }
+        explicit my_string(int n) { s = new char[n + 1] ; len = n; }
+        void assign(const char* st);
+        int length() const { return len; }
+        void print() const 
+            { cout << s << "\nl_ength: " << len << endl; }
+        
+        my_string& operator=(const my_string& a);
 
+        friend my_string& operator+
+            (const my_string& a, const my_string& b);
+
+    private:
+        char* s;
+        int len;
+};
+ 
 //overload +
 my_string& operator+(const my_string& a, const my_string& b)
 {
@@ -34,6 +38,21 @@ my_string& operator+(const my_string& a, const my_string& b)
     strcat(temp->s , b.s);
     return *temp;
 }
+
+ my_string& my_string::operator=(const my_string& a){
+    
+    my_string* temp = new my_string(a.len);
+    strcpy(temp->s, a.s);
+    return *temp;
+
+ }
+
+ void my_string::assign(const char* str){           
+    delete []s;
+    len = strlen(str);           
+    s = new char[len + 1];
+    strcpy(s, str);        
+};       
 
 void print (const char* c) //file scope print
 {
