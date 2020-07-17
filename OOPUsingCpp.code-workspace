@@ -6,7 +6,9 @@
 	],
 	"settings": {
 		"files.associations": {
-			"ostream": "cpp"
+			"ostream": "cpp",
+			"xlocale": "cpp",
+			"xstring": "cpp"
 		}
 	}
 }
