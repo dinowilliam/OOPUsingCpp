@@ -6,7 +6,7 @@
 //string3 in C++
 #include <iostream>        //IO library
 #include <string>          //string stype
-#include <complex>         //string complex type
+//#include <complex>         //string complex type
 #include <cmath>           //string maths types
 
 using namespace std;      //standart library's namespace
@@ -19,7 +19,7 @@ class stack {
         explicit stack(int size = 1000) : max_len(size)
             { s = new TYPE[size]; top = EMPTY; }
         ~stack() { delete []s; }
-        void resetO { top = EMPTY; }
+        void reset() { top = EMPTY; }
         void push (TYPE c) { s[++top] = c; }
         TYPE pop() { return s[top--]; }
         TYPE top_of() { return s[top]; }
@@ -35,7 +35,7 @@ class stack {
 
 stack<char> stk_ch; // 1000 char stack
 stack<char*> stk_str(200); // 200 char- stack
-//stack<complex> stk_cmplx(100); // 100 complex stack
+stack<complex> stk_cmplx(100); // 100 complex stack
 
 //Reversing a series of char- represented strings
 void reverse(char* str[], int n){
