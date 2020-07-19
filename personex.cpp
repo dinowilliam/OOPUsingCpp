@@ -13,15 +13,30 @@ class person {
 
     public:
 
-        person() { name = "", age = 0; }
+        person() { 
+            name = new char[1];
+            strcpy(name, "");
+            age = 0; 
+        }
 
-        person(char* nm, int a){ age =  a, name = nm; }
+        person(char* nm, int a){ 
+            age =  a;            
+            name = new char[strlen(nm)  + 1];
+            strcpy(name, nm);
+            name = nm; 
+        }
         
-        bool setAge(char* n) { name = n; }
-        bool setName(int a) { age = a; }
+        void setAge(int a) { age = a; }
+        
+        void setName(const char* nm) {             
+            name = new char[strlen(nm)  + 1];
+            strcpy(name, nm);  
+        }
 
         int     getAge() { return age; }
         char*   getName() { return name; }
+
+        void print () { cout << "Name: " << name << " Age: " << age << endl; }
     
     protected:
 
@@ -53,7 +68,7 @@ class student : public person {
         double  getGpa() { return gpa; }
         year    getYear() { return y; }
 
-        void print () const;
+        //void print () const;
     
     protected:
 
@@ -76,7 +91,7 @@ class graduate_student : public student {
             age = a, strcpy(name, nm), student_id = id, gpa = g, y = x, s = t, strcpy(dept, d), strcpy(thesis, th);  
         }
 
-        void print () const;
+        //void print () const;
 
         bool setSupport(support st){    s = st;      }
         bool setDept(char* d){  strcpy(dept,d);   }
@@ -125,9 +140,36 @@ class extension_student : public student {
 };
 
 int main(){
-    person* concretePerson = new person();
+    person concretePerson("Charles Babbage", 30);
      
-    cout << concretePerson->getAge() << endl;
+    cout << "Pesonex Test " << endl;   
+
+    concretePerson.print();
+
+    concretePerson.setName("Ada Lovelace");    
+    concretePerson.setAge(27); 
+    
+    concretePerson.print();
+
+    concretePerson.setName("Alan Turing");    
+    concretePerson.setAge(32); 
+    
+    concretePerson.print();
+
+    concretePerson.setName("John Von Newman");    
+    concretePerson.setAge(46);
+    
+    concretePerson.print();    
+
+    concretePerson.setName("Frederick Brooks");    
+    concretePerson.setAge(47);
+    
+    concretePerson.print();    
+
+    concretePerson.setName("Donald Kuth");    
+    concretePerson.setAge(48);
+    
+    concretePerson.print();    
 
     return 0;
 }
