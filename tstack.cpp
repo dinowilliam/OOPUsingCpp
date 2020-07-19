@@ -1,13 +1,12 @@
 /************************************************************************************************************************************/
 /*  Object-Oriented Programming Using C++  by Ira Pohl - Second Edition                                                             */
-/*  Program: tstack.cpp                                                                                                            */
+/*  Program: tstack.cpp                                                                                                             */
 /************************************************************************************************************************************/
 
-//string3 in C++
+//tstack in C++
 #include <iostream>        //IO library
 #include <string>          //string stype
-//#include <complex>         //string complex type
-#include <cmath>           //string maths types
+#include <complex>         //string complex type
 
 using namespace std;      //standart library's namespace
 
@@ -23,8 +22,26 @@ class stack {
         void push (TYPE c) { s[++top] = c; }
         TYPE pop() { return s[top--]; }
         TYPE top_of() { return s[top]; }
-        bool empty() { return (top == EMPTY); }
-        bool full () {return (top == max_len-l);}
+        bool empty() {  return (top == EMPTY); }
+        bool full () {  return (top == max_len-l);  }
+
+        //Reversing a series of char* represented strings
+        void reverse(char* str[], int n){
+
+            stack<char*> stk(n); //this stack holds char*
+            for (int i = 0; i < n; ++i)
+                stk.push(str[i]);
+
+            for (int i = 0; i < n; ++i)
+                str[i] = stk.pop();
+        } 
+
+        //Initializing stack of complex numbers from an array
+        void init(complex<char> c[], stack<complex<char>>& stk, n){
+
+            for (int i = 0; i < n; ++i)
+                stk.push(c[i]);
+        }
     
     private:
         enum {EMPTY = -1};
@@ -35,25 +52,7 @@ class stack {
 
 stack<char> stk_ch; // 1000 char stack
 stack<char*> stk_str(200); // 200 char- stack
-stack<complex> stk_cmplx(100); // 100 complex stack
-
-//Reversing a series of char- represented strings
-void reverse(char* str[], int n){
-
-    stack<char*> stk(n); //this stack holds char*
-    for (int i = 0; i < n; ++i)
-        stk.push(str[i]);
-
-    for (int i = 0; i < n; ++i)
-        str[i] = stk.pop() ;
-} 
-
-//Initializing stack of complex numbers from an array
-void init(complex c[], stack<complex>& stk, n){
-
-    for (int i = 0; i < n; ++i)
-        stk.push(c[i]);
-}
+stack<complex<char>> stk_cmplx(100); // 100 complex stack
 
 int main(){
     
