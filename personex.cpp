@@ -19,11 +19,10 @@ class person {
             age = 0; 
         }
 
-        person(char* nm, int a){ 
+        person(const char* nm, int a){ 
             age =  a;            
             name = new char[strlen(nm)  + 1];
-            strcpy(name, nm);
-            name = nm; 
+            strcpy(name, nm);            
         }
         
         void setAge(int a) { age = a; }
@@ -53,11 +52,21 @@ class student : public person {
     public:
 
         student(){
-            age = 0, strcpy(name, ""), student_id = 0, gpa = 0.0, y = fresh;  
+            age = 0;
+            name = new char[1];
+            strcpy(name, ""); 
+            student_id = 0;
+            gpa = 0.0;
+            y = fresh;  
         }
 
-        student(char* nm, int a, int id, double g, year x){
-            age = a, strcpy(name, nm), student_id = id, gpa = g, y = x;  
+        student(const char* nm, int a, int id, double g, year x){
+            age = a;             
+            name = new char[strlen(nm)  + 1];
+            strcpy(name, nm);  
+            student_id = id;
+            gpa = g; 
+            y = x;  
         }
 
         bool setId(int id) { student_id = id; }
@@ -68,14 +77,13 @@ class student : public person {
         double  getGpa() { return gpa; }
         year    getYear() { return y; }
 
-        //void print () const;
+        void print () { cout << "Name: " << name << " Age: " << age << " Id: " << student_id << " Gpa: " << gpa <<  " Year: " << y <<  endl; }
     
     protected:
 
         int student_id;
         double gpa;
-        year y;
-        char name[30];
+        year y;        
 
 };
 
@@ -84,14 +92,31 @@ class graduate_student : public student {
     public:
 
         graduate_student(){
-            age = 0, strcpy(name, ""), student_id = 0, gpa = 0.0, y = fresh, s = ta, strcpy(dept, ""), strcpy(thesis, "");  
+            age = 0;
+            name = new char[1];
+            strcpy(name, "");
+            student_id = 0; 
+            gpa = 0.0; 
+            y = fresh;
+            s = ta;             
+            strcpy(dept, "");             
+            strcpy(thesis, "");  
         }
 
         graduate_student(char* nm, int a, int id, double g, year x, support t, char* d, char* th){
-            age = a, strcpy(name, nm), student_id = id, gpa = g, y = x, s = t, strcpy(dept, d), strcpy(thesis, th);  
+            age = a;
+            name = new char[strlen(nm)  + 1];
+            strcpy(name, nm);  
+            student_id = id; 
+            gpa = g; 
+            y = x; 
+            s = t;             
+            strcpy(dept, d);             
+            strcpy(thesis, th);  
         }
 
-        //void print () const;
+        void print () { cout << "Name: " << name << " Age: " << age << " Id: " << student_id << " Gpa: " << gpa <<  " Year: " << y << " Support: " << thesis << " Depth: " << dept 
+                             <<  " Thesis: " << thesis << endl; }
 
         bool setSupport(support st){    s = st;      }
         bool setDept(char* d){  strcpy(dept,d);   }
@@ -121,7 +146,8 @@ class extension_student : public student {
             age = a, strcpy(name, nm), student_id = id, gpa = g, y = x, s = t, strcpy(dept, d), strcpy(thesis, th);  
         }
 
-        void print () const;
+        void print () { cout << "Name: " << name << " Age: " << age << " Id: " << student_id << " Gpa: " << gpa <<  " Year: " << y << " Support: " << thesis << " Depth: " << dept 
+                             <<  " Thesis: " << thesis << endl; }
 
         bool setSupport(support st){    s = st;      }
         bool setDept(char* d){  strcpy(dept,d);   }
@@ -140,22 +166,25 @@ class extension_student : public student {
 };
 
 int main(){
-    person concretePerson("Charles Babbage", 30);
+    person concretePerson("Person 1", 30);
+
+    student concreteStudent("Student 1", 30, 10254, 0.6, fresh);
      
     cout << "Pesonex Test " << endl;   
 
-    concretePerson.print();
+    concretePerson.print();        
+    concreteStudent.print();
 
-    concretePerson.setName("Ada Lovelace");    
-    concretePerson.setAge(27); 
+    concreteStudent.setName("Student 2");    
+    concreteStudent.setAge(32); 
     
-    concretePerson.print();
+    concreteStudent.print();
 
-    concretePerson.setName("Alan Turing");    
-    concretePerson.setAge(32); 
+    graduate_student concreteGraduateStudent("Student 3", 30, 10254, 0.6, fresh, ta, "1 year", "Quantum Chaos with Fractals");
     
-    concretePerson.print();
+    concreteGraduateStudent.print();
 
+    /*
     concretePerson.setName("John Von Newman");    
     concretePerson.setAge(46);
     
@@ -170,6 +199,7 @@ int main(){
     concretePerson.setAge(48);
     
     concretePerson.print();    
+    */
 
     return 0;
 }
