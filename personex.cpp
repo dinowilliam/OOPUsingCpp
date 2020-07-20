@@ -115,7 +115,7 @@ class graduate_student : public student {
             strcpy(thesis, th);  
         }
 
-        void print () { cout << "Name: " << name << " Age: " << age << " Id: " << student_id << " Gpa: " << gpa <<  " Year: " << y << " Support: " << thesis << " Depth: " << dept 
+        void print () { cout << "Name: " << name << " Age: " << age << " Id: " << student_id << " Gpa: " << gpa <<  " Year: " << y << " Support: " << s << " Depth: " << dept 
                              <<  " Thesis: " << thesis << endl; }
 
         bool setSupport(support st){    s = st;      }
@@ -146,7 +146,7 @@ class extension_student : public student {
             age = a, strcpy(name, nm), student_id = id, gpa = g, y = x, s = t, strcpy(dept, d), strcpy(thesis, th);  
         }
 
-        void print () { cout << "Name: " << name << " Age: " << age << " Id: " << student_id << " Gpa: " << gpa <<  " Year: " << y << " Support: " << thesis << " Depth: " << dept 
+        void print () { cout << "Name: " << name << " Age: " << age << " Id: " << student_id << " Gpa: " << gpa <<  " Year: " << y << " Support: " << s << " Depth: " << dept 
                              <<  " Thesis: " << thesis << endl; }
 
         bool setSupport(support st){    s = st;      }
@@ -166,6 +166,7 @@ class extension_student : public student {
 };
 
 int main(){
+
     person concretePerson("Person 1", 30);
 
     student concreteStudent("Student 1", 30, 10254, 0.6, fresh);
@@ -180,16 +181,16 @@ int main(){
     
     concreteStudent.print();
 
-    graduate_student concreteGraduateStudent("Student 3", 30, 10254, 0.6, fresh, ta, "1 year", "Quantum Chaos with Fractals");
+    graduate_student concreteGraduateStudent("Graduate Student", 30, 10254, 0.6, fresh, fellowship, "1 year", "Quantum Chaos with Fractals");
     
     concreteGraduateStudent.print();
-
-    /*
-    concretePerson.setName("John Von Newman");    
-    concretePerson.setAge(46);
     
-    concretePerson.print();    
-
+    extension_student concreteExtesionStudent("Extension Student", 30, 10254, 0.6, fresh, fellowship, "1 year", "Mandellbrot Set and Applications");
+    
+    concreteExtesionStudent.print();
+    
+    
+    /*
     concretePerson.setName("Frederick Brooks");    
     concretePerson.setAge(47);
     
