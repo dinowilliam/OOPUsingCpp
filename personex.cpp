@@ -165,6 +165,186 @@ class extension_student : public student {
         
 };
 
+class employee : public person {
+
+    public:
+
+        employee(){
+            age = 0;
+            name = new char[1];
+            strcpy(name, ""); 
+            employee_id = 0;
+            salary = 0.0;
+            profession = new char[1];
+            strcpy(profession, ""); 
+        }
+
+        employee(const char* nm, int a, int id, double s, const char* p){
+            age = a;             
+            name = new char[strlen(nm)  + 1];
+            strcpy(name, nm);  
+            employee_id = id;
+            salary = s; 
+            name = new char[strlen(p)  + 1];
+            strcpy(profession, p);               
+        }
+
+        bool setId(int id) { employee_id = id; }
+        bool setSalary(double s) { salary = s; }
+        bool setProfession(char* p) { 
+            name = new char[strlen(p)  + 1];
+            strcpy(profession, p); 
+        }
+
+        int     getId() {   return employee_id;   } 
+        double  getSalary() {   return salary;   }
+        char*   getProfession() {   return profession;   }
+
+        void print () {     cout << "Name: " << name << " Age: " << age << " Id: " << employee_id << " Salary: " << salary <<  " Profession: " << profession <<  endl;      }
+    
+    protected:
+
+        int employee_id;
+        double salary;
+        char*  profession;        
+
+};
+
+class faculty : public employee {
+
+    public:
+
+        faculty(){
+            age = 0;
+            name = new char[1];
+            strcpy(name, ""); 
+            employee_id = 0;
+            salary = 0.0;
+            profession = new char[1];
+            strcpy(profession, ""); 
+        }
+
+        faculty(const char* nm, int a, int id, double s, const char* p){
+            age = a;             
+            name = new char[strlen(nm)  + 1];
+            strcpy(name, nm);  
+            employee_id = id;
+            salary = s; 
+            name = new char[strlen(p)  + 1];
+            strcpy(profession, p);               
+        }
+
+        bool setId(int id) { employee_id = id; }
+        bool setSalary(double s) { salary = s; }
+        bool setProfession(char* p) { 
+            name = new char[strlen(p)  + 1];
+            strcpy(profession, p); 
+        }
+
+        int     getId() {   return employee_id;   } 
+        double  getSalary() {   return salary;   }
+        char*   getProfession() {   return profession;   }
+
+        void print () {     cout << "Name: " << name << " Age: " << age << " Id: " << employee_id << " Salary: " << salary <<  " Profession: " << profession <<  endl;      }
+    
+    protected:
+
+        int employee_id;
+        double salary;
+        char*  profession;        
+
+};
+
+class nonfaculty : public employee {
+
+    public:
+
+        nonfaculty(){
+            age = 0;
+            name = new char[1];
+            strcpy(name, ""); 
+            employee_id = 0;
+            salary = 0.0;
+            profession = new char[1];
+            strcpy(profession, ""); 
+        }
+
+        nonfaculty(const char* nm, int a, int id, double s, const char* p){
+            age = a;             
+            name = new char[strlen(nm)  + 1];
+            strcpy(name, nm);  
+            employee_id = id;
+            salary = s; 
+            name = new char[strlen(p)  + 1];
+            strcpy(profession, p);               
+        }
+
+        bool setId(int id) { employee_id = id; }
+        bool setSalary(double s) { salary = s; }
+        bool setProfession(char* p) { 
+            name = new char[strlen(p)  + 1];
+            strcpy(profession, p); 
+        }
+
+        int     getId() {   return employee_id;   } 
+        double  getSalary() {   return salary;   }
+        char*   getProfession() {   return profession;   }
+
+        void print () {     cout << "Name: " << name << " Age: " << age << " Id: " << employee_id << " Salary: " << salary <<  " Profession: " << profession <<  endl;      }
+    
+    protected:
+
+        int employee_id;
+        double salary;
+        char*  profession;        
+
+};
+
+class tenure : public faculty {
+
+    public:
+
+        tenure(){
+            age = 0;
+            name = new char[1];
+            strcpy(name, ""); 
+            employee_id = 0;
+            salary = 0.0;
+            profession = new char[1];
+            strcpy(profession, ""); 
+        }
+
+        tenure(const char* nm, int a, int id, double s, const char* p){
+            age = a;             
+            name = new char[strlen(nm)  + 1];
+            strcpy(name, nm);  
+            employee_id = id;
+            salary = s; 
+            name = new char[strlen(p)  + 1];
+            strcpy(profession, p);               
+        }
+
+        bool setId(int id) { employee_id = id; }
+        bool setSalary(double s) { salary = s; }
+        bool setProfession(char* p) { 
+            name = new char[strlen(p)  + 1];
+            strcpy(profession, p); 
+        }
+
+        int     getId() {   return employee_id;   } 
+        double  getSalary() {   return salary;   }
+        char*   getProfession() {   return profession;   }
+
+        void print () {     cout << "Name: " << name << " Age: " << age << " Id: " << employee_id << " Salary: " << salary <<  " Profession: " << profession <<  endl;      }
+    
+    protected:
+
+        int employee_id;
+        double salary;
+        char*  profession;        
+
+};
+
 int main(){
 
     person concretePerson("Person 1", 30);
@@ -187,20 +367,7 @@ int main(){
     
     extension_student concreteExtesionStudent("Extension Student", 30, 10254, 0.6, fresh, fellowship, "1 year", "Mandellbrot Set and Applications");
     
-    concreteExtesionStudent.print();
-    
-    
-    /*
-    concretePerson.setName("Frederick Brooks");    
-    concretePerson.setAge(47);
-    
-    concretePerson.print();    
-
-    concretePerson.setName("Donald Kuth");    
-    concretePerson.setAge(48);
-    
-    concretePerson.print();    
-    */
+    concreteExtesionStudent.print();   
 
     return 0;
 }
