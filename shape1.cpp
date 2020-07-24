@@ -1,9 +1,9 @@
 /************************************************************************************************************************************/
 /*  Object-Oriented Programming Using C++ by Ira Pohl - Second Edition                                                              */
-/*  Program: personex.cpp                                                                                                           */
+/*  Program: shape1.cpp                                                                                                           */
 /************************************************************************************************************************************/
 
-//personex in C++ (This is the program from the picture model of class person inheritance)
+//shape1 in C++ 
 #include <iostream>        //IO library
 #include <string>          //string stype
 
