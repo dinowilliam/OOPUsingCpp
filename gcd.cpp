@@ -25,6 +25,20 @@ int gcd(int m, int n)   //function definition
 
 int main(){
 
-    cout << "Gcd Value Is: " << gcd(10, 23) << endl;
-    
+   int x, y, g;
+
+    cout << "\nPROGRAM Gcd C++";
+    do {
+
+        cout << "\nEnter two integers: ";
+        cin >> x >> y;
+        assert(x * y != 0);             //precondition on gcd
+
+        cout << "\nGCD(" << x << ", " << y << ") = "
+             << (g = gcd(x, y)) << endl;
+
+        assert(x % g == 0 && y % g == 0); //postcondition
+
+    } while (x != y);
+
 }
