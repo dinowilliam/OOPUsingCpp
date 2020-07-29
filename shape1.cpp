@@ -16,7 +16,7 @@ class shape {
 
 };
 
-class rectangle: public shape {
+class rectangle : public shape {
 
     public:
         rectangle(double h, double w) : height(h), width(w) { }         
@@ -31,12 +31,23 @@ class circle : public shape {
     
     public:
         circle(double r) : radius(r) { }
-        double area() { return(3. 14159 * radius * radius); }
+        double area() { return(3.14159 * radius * radius); }
 
     private:
         double radius;
 };
         
+class square : public rectangle {
+    
+    public:
+        square(double h) : rectangle(h,h) { }
+        double area() { return (rectangle::area()); }
 
+};
 
+int main(){
 
+    shape* ptr_shape;
+    cout << " area = " << ptr_shape -> area();
+
+}
